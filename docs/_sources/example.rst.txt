@@ -1,0 +1,62 @@
+
+An example file with sample code
+================================
+
+   
+An initial introduction to documentation using `Sphinx`.
+
+.. setting the current class or module to which the defined function belongs
+
+.. currentmodule:: STM
+
+My Handle Class
+---------------
+
+This is how we define a class manually. 
+
+.. code-block:: rst
+
+	.. class:: MyHandleClass(arg1, arg2)
+
+.. class:: MyHandleClass(arg1, arg2)
+
+Create a link to it from a different place using `:class:`MyHandleClass``.
+
+:class:`MyHandleClass` is a link to the class location.
+
+
+
+	
+
+To-do example
+-------------
+
+An to-do box can be inserted using the following syntax
+
+.. code-block:: rst
+
+	.. Todo::
+	  * For module TODOs
+	  * You have to also use ``sphinx.ext.todo`` extension
+	
+.. Todo::
+  * For module TODOs
+  * You have to also use ``sphinx.ext.todo`` extension
+
+
+  
+Figure example
+--------------
+
+.. figure:: /images/combCov.PNG
+
+This is the caption to the figure
+
+
+The following is an image with no caption
+
+.. image:: /images/combCov.PNG
+
+ 
+
+:class:`MyHandleClass` is a link to the class location from a different section.

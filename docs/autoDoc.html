@@ -1,0 +1,203 @@
+
+
+<!doctype html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Help for functions &#8212; Non-ideal part modelling and simulation by morphing-Gaussian Random Fields(mGRF) V0.1 documentation</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="mat-modindex.html" title="MATLAB Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Non-ideal part modelling and simulation by morphing-Gaussian Random Fields(mGRF) V0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/autoDoc.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-mGRF">
+<span id="help-for-functions"></span><h1>Help for functions<a class="headerlink" href="#module-mGRF" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="mGRF.contourDomainPlot">
+<code class="sig-name descname">contourDomainPlot</code><span class="sig-paren">(</span><em class="sig-param">fem</em>, <em class="sig-param">domainID</em>, <em class="sig-param">userData</em>, <em class="sig-param">colourBar</em>, <em class="sig-param">varargin</em><span class="sig-paren">)</span><a class="headerlink" href="#mGRF.contourDomainPlot" title="Permalink to this definition">¶</a></dt>
+<dd><p>A helper fucntion to create contourplot of a given mesh (domain) within
+fem structure of VRM for data specified by the user.</p>
+<p>Args:
+userdata: vector of values to visualise, length = nNode X 1
+colourBar : 0 or 1, creates a colourBar when = 1
+ax : axis to plot the figure, if empty a new axis is created</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mGRF.getAssembledKe">
+<code class="sig-name descname">getAssembledKe</code><span class="sig-paren">(</span><em class="sig-param">fem</em>, <em class="sig-param">domainID</em><span class="sig-paren">)</span><a class="headerlink" href="#mGRF.getAssembledKe" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to assemble the stiffness matrix of a given mesh
+element=element strucutre</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fem</strong> – fem structure from VRM after loading the mesh</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>assemble stiffness matrix</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Ke</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="mGRF.getElementStifness">
+<code class="sig-name descname">getElementStifness</code><span class="sig-paren">(</span><em class="sig-param">fem</em>, <em class="sig-param">eleId</em><span class="sig-paren">)</span><a class="headerlink" href="#mGRF.getElementStifness" title="Permalink to this definition">¶</a></dt>
+<dd><p>Helper function for getAssembledKe</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mGRF.getMgrfDev">
+<code class="sig-name descname">getMgrfDev</code><span class="sig-paren">(</span><em class="sig-param">mGRF</em>, <em class="sig-param">meshCoord</em>, <em class="sig-param">keyPointsID</em>, <em class="sig-param">meshStiffMat</em>, <em class="sig-param">nSample</em><span class="sig-paren">)</span><a class="headerlink" href="#mGRF.getMgrfDev" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to simulate non-ideal parts using morphing-Gaussian Random
+Fields(mGRF). All options to the generation of non-ideal parts are to be provided in the
+mGRF structure. The mGRF structure has to main inputs: 1) mGRF.HypParmOpt.Type -
+corresponding to the different ways to input the hyper-parameters of the
+Gaussian Random Field, and 2) mGRF.NIdev.Type - corresponding to the type
+of non-ideal deviatons to be slimulated</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>meshCoord</strong> – coordinates of all mesh nodes an nNodes X 3 matrix</p></li>
+<li><p><strong>keyPointsID</strong> – node ID of all the key points</p></li>
+<li><p><strong>meshStiffMat</strong> – The stiffness matrix for the whole mesh</p></li>
+<li><p><strong>nSample</strong> – Number of non-ideal part instances to be simulated</p></li>
+<li><p><strong>mGRF.HypParmOpt.Type</strong> – ‘measData’ | ‘manual’ | ‘load’</p></li>
+<li><p><strong>specific to 'measData'</strong> (<em>Options</em>) – </p></li>
+<li><p><strong>mGRF.HypParmOpt.devPatterns</strong> – nInstances x nNodes matrix of non-ideal  deviations</p></li>
+<li><p><strong>specific to 'manual'</strong> (<em>Options</em>) – </p></li>
+<li><p><strong>mGRF.HypParmOpt.sn</strong> – noise standard dev</p></li>
+<li><p><strong>mGRF.HypParmOpt.lScale</strong> – characteristic length scale, 3X1 vector for x,yand z directions</p></li>
+<li><p><strong>mGRF.HypParmOpt.sf</strong> – scaling factor (set to 1 by default)</p></li>
+<li><p><strong>specific to 'file'</strong> (<em>Options</em>) – </p></li>
+<li><p><strong>mGRF.HypParmOpt.File</strong> – name of the .mat file containing optimised hyper parameter values for a batch of deviations%</p></li>
+<li><p><strong>mGRF.NIdev.Type</strong> – ‘dent’|’flange’|’bending’|’formErr’, String defining the type of non-ideal deformatios</p></li>
+<li><p><strong>mGRF.NIdev.Probability</strong> – confidence value that max form error is less than specified value (between 0-1)</p></li>
+<li><p><strong>mGRF.NIdev.MaxFormError</strong> – Maximum specified form error</p></li>
+<li><p><strong>mGRF.NIdev.NBasis</strong> – Number of basis to use for interpolating the covariance matric for whole mesh</p></li>
+<li><p><strong>specific to bending</strong> (<em>Options</em>) – </p></li>
+<li><p><strong>mGRF.NIdev.Bending.ID</strong> – Vector of length 2 representing two nodes forming the bending axis</p></li>
+<li><p><strong>mGRF.NIdev.Bending.Theta</strong> – Bending angleabout the axis in degrees</p></li>
+<li><p><strong>specific to 'dent'|'flange' local deformations</strong> (<em>Options</em>) – </p></li>
+<li><p><strong>mGRF.NIdev.Local.ID</strong> – vector containing node IDs of all nodes being manipulated</p></li>
+<li><p><strong>mGRF.NIdev.Local.Dev</strong> – nID X 1, vector of local deformation of key points</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The nNodes X nSamples matrix of non-ideal part deviations</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dev</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="script">
+<dt id="mGRF.mGRF_main">
+<code class="sig-name descname">mGRF_main</code><a class="headerlink" href="#mGRF.mGRF_main" title="Permalink to this definition">¶</a></dt>
+<dd><p>A script demonstrating the abilites of non-ideal part modelling and
+simulation using the mGRF methodology</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="mGRF.setCovStruct">
+<code class="sig-name descname">setCovStruct</code><span class="sig-paren">(</span><em class="sig-param">type</em>, <em class="sig-param">varargin</em><span class="sig-paren">)</span><a class="headerlink" href="#mGRF.setCovStruct" title="Permalink to this definition">¶</a></dt>
+<dd><p>A function to help set options of the mean and covariance fuction
+according to gp toolbox. Matern covariance function is used as defalult
+throughout</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – ‘default’ or ‘user’ string</p></li>
+<li><p><strong>type is 'user' three vectors are expected</strong> (<em>if</em>) – </p></li>
+<li><p><strong>sn</strong> – 1x1 scalar, noise standard dev (makes surface points pass</p></li>
+<li><p><strong>key points if zero). Default 0.001</strong> (<em>through</em>) – </p></li>
+<li><p><strong>lscale</strong> – 3x1 characteristic length scale in x, y and z respectively.</p></li>
+<li><p><strong>20, 20, 10 mm</strong> (<em>Default</em>) – </p></li>
+<li><p><strong>sf</strong> – 1x1 scalar, latent function standard dev or output scaling factor. Default 1.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Covariance function parameters in syntax compatible with gp toolbox</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="mat-modindex.html" title="MATLAB Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">Non-ideal part modelling and simulation by morphing-Gaussian Random Fields(mGRF) V0.1 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2019, Manoj Babu.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.2.0.
+    </div>
+  </body>
+</html>
